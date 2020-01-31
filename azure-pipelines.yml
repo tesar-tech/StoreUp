@@ -32,7 +32,9 @@ steps:
   inputs:
     serviceEndpoint: 'NaWinDevCenter'
     appId: '9PH5NNZ5BXFQ'
+    metadataUpdateMethod: 'JsonMetadata'
+    metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata'
+    updateImages: false
     packagePath: '$(appxPackageDir)\*.msixupload'
     force: false
     skipPolling: false
-
