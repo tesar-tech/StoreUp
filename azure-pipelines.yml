@@ -25,6 +25,14 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: VersionAPPX@2
+  inputs:
+    Path: '$(Build.SourcesDirectory)'
+    VersionNumber: '$(versionOfApp)'
+    InjectVersion: False
+    VersionRegex: '(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){3}'
+    OutputVersion: 'OutputedVersion'
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
