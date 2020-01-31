@@ -46,7 +46,7 @@ steps:
     serviceEndpoint: 'NaWinDevCenter'
     appId: '9PH5NNZ5BXFQ'
     packagePath: '$(appxPackageDir)\*.msixupload'
-    force: true
+    force: false
     skipPolling: true
     deletePackages: true
     numberOfPackagesToKeep: '0'
