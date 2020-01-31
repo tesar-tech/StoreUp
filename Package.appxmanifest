@@ -9,7 +9,7 @@
   <Identity
     Name="26872JanTesa.StoreUp"
     Publisher="CN=5981E6E6-8952-4365-82F4-62FDCB563115"
-    Version="1.0.0.0" />
+    Version="1.0.5.0" />
 
   <mp:PhoneIdentity PhoneProductId="04ba1792-d93e-455f-b434-3b014fcf7385" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -37,7 +37,7 @@
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="StoreUp"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
