@@ -41,27 +41,27 @@ steps:
                   /p:AppxPackageSigningEnabled=false'
     configuration: '$(buildConfiguration)'
 
-- task: store-publish@0
-  inputs:
-    serviceEndpoint: 'NaWinDevCenter'
-    appId: '9PH5NNZ5BXFQ'
-    packagePath: '$(appxPackageDir)\*.msixupload'
-    force: true
-    skipPolling: false
-    deletePackages: true
-    numberOfPackagesToKeep: '0'
-
-
-
 # - task: store-publish@0
 #   inputs:
 #     serviceEndpoint: 'NaWinDevCenter'
 #     appId: '9PH5NNZ5BXFQ'
-#     metadataUpdateMethod: 'JsonMetadata'
-#     metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata'
-#     updateImages: true
 #     packagePath: '$(appxPackageDir)\*.msixupload'
-#     force: false
-#     skipPolling: true
+#     force: true
+#     skipPolling: false
 #     deletePackages: true
 #     numberOfPackagesToKeep: '0'
+
+
+
+- task: store-publish@0
+  inputs:
+    serviceEndpoint: 'NaWinDevCenter'
+    appId: '9PH5NNZ5BXFQ'
+    metadataUpdateMethod: 'JsonMetadata'
+    metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata'
+    updateImages: true
+    packagePath: '$(appxPackageDir)\*.msixupload'
+    force: false
+    skipPolling: true
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
