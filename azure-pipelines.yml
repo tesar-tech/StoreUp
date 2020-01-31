@@ -14,9 +14,9 @@ variables:
   buildPlatform: 'x86|x64|ARM'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
-  majorMinorBuildVer: "1.0.1"
-  patchver: $[counter(variables['majorMinorBuildVer'], 0)]
-  versionOfApp: '$(majorMinorBuildVer).$(patchver)'
+  majorMinorBuildVer: "1.1"
+  buildNum: $[counter(variables['majorMinorBuildVer'], 0)]
+  versionOfApp: '$(majorMinorBuildVer).$(buildNum).0'
 
 steps:
 - task: NuGetToolInstaller@1
