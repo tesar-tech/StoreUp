@@ -14,6 +14,9 @@ variables:
   buildPlatform: 'x86|x64|ARM'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
+  majorMinorBuildVer: "1.0.1"
+  patchver: $[counter(variables['majorMinorBuildVer'], 0)]
+  versionOfApp: '$(majorMinorBuildVer).$(patchver)'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -36,7 +39,9 @@ steps:
     appId: '9PH5NNZ5BXFQ'
     metadataUpdateMethod: 'JsonMetadata'
     metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata'
-    updateImages: false
+    updateImages: true
     packagePath: '$(appxPackageDir)\*.msixupload'
     force: false
-    skipPolling: false
+    skipPolling: true
+    deletePackages: true
+    numberOfPackagesToKeep: '0'
