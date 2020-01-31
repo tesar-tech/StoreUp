@@ -5,6 +5,7 @@
 
 trigger:
 - master
+pr: none 
 
 pool:
   vmImage: 'windows-latest'
@@ -41,18 +42,6 @@ steps:
                   /p:AppxPackageSigningEnabled=false'
     configuration: '$(buildConfiguration)'
 
-# - task: store-publish@0
-#   inputs:
-#     serviceEndpoint: 'NaWinDevCenter'
-#     appId: '9PH5NNZ5BXFQ'
-#     packagePath: '$(appxPackageDir)\*.msixupload'
-#     force: true
-#     skipPolling: false
-#     deletePackages: true
-#     numberOfPackagesToKeep: '0'
-
-
-
 - task: store-publish@0
   inputs:
     serviceEndpoint: 'NaWinDevCenter'
@@ -62,6 +51,6 @@ steps:
     updateImages: true
     packagePath: '$(appxPackageDir)\*.msixupload'
     force: false
-    skipPolling: true
+    skipPolling: false
     deletePackages: true
-    numberOfPackagesToKeep: '0'
+    numberOfPackagesToKeep: '5'
