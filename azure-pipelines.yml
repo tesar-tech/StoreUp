@@ -1,11 +1,13 @@
-# Universal Windows Platform
-# Build a Universal Windows Platform project using Visual Studio.
-# Add steps that test and distribute an app, save build artifacts, and more:
-# https://aka.ms/yaml
+# Submit new package to Microsoft Store
+# Steps:
+  # download source code
+  # change version in manifest file
+  # restore package, build solution
+  # upload to store 
 
 trigger:
 - master
-pr: none 
+pr: none #don't run build won pull requests
 
 pool:
   vmImage: 'windows-latest'
@@ -16,8 +18,8 @@ variables:
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
   majorMinorBuildVer: "1.1"
-  buildNum: $[counter(variables['majorMinorBuildVer'], 0)]
-  versionOfApp: '$(majorMinorBuildVer).$(buildNum).0'
+  buildNum: $[counter(variables['majorMinorBuildVer'], 0)] # this number increment with every build. Starts with 0, when majorMinor changes
+  versionOfApp: '$(majorMinorBuildVer).$(buildNum).0' #revision number has to be 0, otherwise it will drop the package in store.
 
 steps:
 - task: NuGetToolInstaller@1
@@ -26,7 +28,7 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VersionAPPX@2
+- task: VersionAPPX@2 #just changes version in manifest file
   inputs:
     Path: '$(Build.SourcesDirectory)'
     VersionNumber: '$(versionOfApp)'
@@ -39,7 +41,7 @@ steps:
     solution: '$(solution)'
     msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always 
                   /p:UapAppxPackageBuildMode=StoreUpload 
-                  /p:AppxPackageSigningEnabled=false'
+                  /p:AppxPackageSigningEnabled=false' #store will sign package
     configuration: '$(buildConfiguration)'
 
 - task: store-publish@0
@@ -47,10 +49,10 @@ steps:
     serviceEndpoint: 'NaWinDevCenter'
     appId: '9PH5NNZ5BXFQ'
     metadataUpdateMethod: 'JsonMetadata'
-    metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata'
+    metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata' # path where storeListing exists (with images)
     updateImages: true
     packagePath: '$(appxPackageDir)\*.msixupload'
-    force: false
-    skipPolling: false
+    force: false #force will delete any in progess submission
+    skipPolling: false #pipeline will finish after package is approved (or declined)
     deletePackages: true
     numberOfPackagesToKeep: '5'
