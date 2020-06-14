@@ -9,7 +9,7 @@
   <Identity
     Name="26872JanTesa.StoreUp"
     Publisher="CN=5981E6E6-8952-4365-82F4-62FDCB563115"
-    Version="1.0.5.0" />
+    Version="1.0.6.0" />
 
   <mp:PhoneIdentity PhoneProductId="04ba1792-d93e-455f-b434-3b014fcf7385" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
