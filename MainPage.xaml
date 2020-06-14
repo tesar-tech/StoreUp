@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="It's working. v4"/>
+        <TextBlock Text="It's working. v5"/>
     </Grid>
 </Page>
