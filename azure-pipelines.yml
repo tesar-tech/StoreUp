@@ -46,7 +46,7 @@ steps:
 
 - task: store-publish@0
   inputs:
-    serviceEndpoint: 'NaWinDevCenter'
+    serviceEndpoint: 'NaWinDevcenter2'
     appId: '9PH5NNZ5BXFQ'
     metadataUpdateMethod: 'JsonMetadata'
     metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata' # path where storeListing exists (with images)
