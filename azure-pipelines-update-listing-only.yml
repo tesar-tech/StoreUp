@@ -1,0 +1,18 @@
+#Only updates metadata (store listing)
+
+trigger: 
+- none #it will be triggerd manual only
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: store-publish@0
+  inputs:
+    serviceEndpoint: 'NaWinDevCenter'
+    appId: '9PH5NNZ5BXFQ'
+    metadataUpdateMethod: 'JsonMetadata'
+    metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata' # path where storeListing exists (with images)
+    updateImages: true
+    force: true #force will delete any in progess submission
+    skipPolling: true # if false, pipeline will finish after package is approved (or declined)
