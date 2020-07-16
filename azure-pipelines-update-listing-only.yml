@@ -11,6 +11,7 @@ steps:
   inputs:
     serviceEndpoint: 'NaWinDevCenter'
     appId: '9PH5NNZ5BXFQ'
+    packagePath: '$(appxPackageDir)\*.msixupload'
     metadataUpdateMethod: 'JsonMetadata'
     metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata' # path where storeListing exists (with images)
     updateImages: true
