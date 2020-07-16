@@ -48,6 +48,7 @@ jobs:
           configuration: '$(buildConfiguration)'
           
   - job: Publish
+    dependsOn: Build #Run only when build succeeded
     steps:
     - task: store-publish@0
       inputs:
