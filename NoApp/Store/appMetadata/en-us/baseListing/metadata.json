@@ -1,7 +1,7 @@
 {
     "keywords": ["azure-pipelines","UWP","automation"],
     "websiteUrl": "https://github.com/tesar-tech/StoreUp",
-    "description": "App for testing store and azure-pipelines automation.v3",
+    "description": "App for testing store and azure-pipelines automation.v4",
     "features": ["Do nothing","Runs very fast","Shows blank screen","another feature"],
     "releaseNotes": "This is default release note",
     "title": "Store Up",
