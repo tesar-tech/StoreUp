@@ -11,10 +11,9 @@ steps:
   inputs:
     serviceEndpoint: 'NaWinDevCenter'
     appId: '9PH5NNZ5BXFQ'
+    packagePath: '$(appxPackageDir)\*.msixupload'
     metadataUpdateMethod: 'JsonMetadata'
     metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata' # path where storeListing exists (with images)
     updateImages: true
     force: true #force will delete any in progess submission
     skipPolling: true # if false, pipeline will finish after package is approved (or declined)
-    deletePackages: true
-    numberOfPackagesToKeep: '5'
