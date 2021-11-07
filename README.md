@@ -6,7 +6,7 @@
 
 App for testing automatic store update with azure-pipelines. (just blank uwp app with no functionality).
 
-[![Build Status](https://tjkod.visualstudio.com/StoreUp/_apis/build/status/tesar-tech.StoreUp?branchName=master&jobName=Job)](https://tjkod.visualstudio.com/StoreUp/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://tjkod.visualstudio.com/StoreUp/_apis/build/status/tesar-tech.StoreUp%20-%20Whole%20package?branchName=master)](https://tjkod.visualstudio.com/StoreUp/_build/latest?definitionId=1&branchName=master)
 
 
 Using [windows-dev-center-vsts-extension](https://github.com/microsoft/windows-dev-center-vsts-extension). There are also pretty exhaustive instructions about setting and usage.
