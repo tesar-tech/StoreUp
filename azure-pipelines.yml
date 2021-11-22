@@ -47,16 +47,16 @@ jobs:
                         /p:AppxPackageSigningEnabled=false' #store will sign package
           configuration: '$(buildConfiguration)'
           
-
-    - task: CopyFiles@2
+    - task: PublishBuildArtifacts@1
       inputs:
-        SourceFolder: '$(appxPackageDir)'
-        Contents: '**\*.msixupload'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)' 
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
 
   - job: Publish
     dependsOn: Build #Run only when build succeeded
     steps:
+    - task: DownloadBuildArtifacts@1
     - task: store-publish@0
       inputs:
           serviceEndpoint: 'NaWinDevCenter'
