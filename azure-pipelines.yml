@@ -71,9 +71,10 @@ jobs:
           metadataUpdateMethod: 'JsonMetadata'
           metadataPath: '$(system.defaultworkingdirectory)\NoApp\Store\appMetadata' # path where storeListing exists (with images)
           updateImages: true
-          packagePath: '$(appxPackageDir)\*.msixupload'
+          packagePath: '$(Build.ArtifactStagingDirectory)\**\*.msixupload'
           force: true #force will delete any in progess submission
           skipPolling: true # if false, pipeline will finish after package is approved (or declined)
           deletePackages: true
           numberOfPackagesToKeep: '5'
+          
          
