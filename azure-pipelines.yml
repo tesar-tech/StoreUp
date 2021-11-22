@@ -47,9 +47,23 @@ jobs:
                         /p:AppxPackageSigningEnabled=false' #store will sign package
           configuration: '$(buildConfiguration)'
           
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(appxPackageDir)'
+        Contents: '**\*bundle.msixupload'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'   
+
   - job: Publish
     dependsOn: Build #Run only when build succeeded
     steps:
+    - task: DownloadBuildArtifacts@1
+
     - task: store-publish@0
       inputs:
           serviceEndpoint: 'NaWinDevCenter'
@@ -62,4 +76,4 @@ jobs:
           skipPolling: true # if false, pipeline will finish after package is approved (or declined)
           deletePackages: true
           numberOfPackagesToKeep: '5'
-          isMandatoryUpdate: true
+         
