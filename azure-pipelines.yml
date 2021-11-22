@@ -51,13 +51,8 @@ jobs:
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(appxPackageDir)'
-        Contents: '**\*bundle.msixupload'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'   
+        Contents: '**\*.msixupload'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)' 
 
   - job: Publish
     dependsOn: Build #Run only when build succeeded
