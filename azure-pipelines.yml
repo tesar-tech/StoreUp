@@ -62,3 +62,4 @@ jobs:
           skipPolling: true # if false, pipeline will finish after package is approved (or declined)
           deletePackages: true
           numberOfPackagesToKeep: '5'
+          isMandatoryUpdate: true
